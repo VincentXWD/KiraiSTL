@@ -4,6 +4,7 @@
 #include <cstddef>
 
 #include "allocator.h"
+#include "constructor.hpp"
 
 namespace kirai {
 
@@ -88,9 +89,9 @@ class vector {
 
   void pop_back();
 
-  iterator insert (iterator position, const T& val);
+  iterator insert(iterator position, const T& val);
 
-  iterator insert (iterator position, size_type n, const T& val); 
+  iterator insert(iterator position, size_type n, const T& val); 
 
   iterator erase(iterator position) {
     if (position != end()) {
@@ -101,7 +102,7 @@ class vector {
     return position;
   }
 
-  iterator erase (iterator first, iterator last) {
+  iterator erase(iterator first, iterator last) {
     iterator i = copy(last, finish, first);
     destroy(i, finish);
     finish = finish - (last - first);

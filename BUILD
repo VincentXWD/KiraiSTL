@@ -26,6 +26,16 @@ cc_library(
 )
 
 cc_library(
+    name = "constructor",
+    hdrs = glob([
+        "lib/constructor/*.hpp"
+    ]),
+    includes = [
+        "lib/constructor"
+    ]
+)
+
+cc_library(
     name = "vector",
     srcs = glob([
         "lib/vector/*.cpp"
@@ -36,6 +46,7 @@ cc_library(
     deps = [
         "//:allocator",
         "//:iterator",
+        "//:constructor"
     ],
     includes = [
         "lib/vector"
